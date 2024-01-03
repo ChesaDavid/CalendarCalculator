@@ -4,27 +4,26 @@ public class CalendarCalculator {
 
 
     public static void main(String[] args) {
-        
+        boolean running = true;
         while(running){
             System.out.println("Hello World and welcome to a calendar calculator");
             Day inputDay = new Day();
-            int day = 
-            inputDay.setScanerDay();
-            boolean running = true;
             Scanner scanner = new Scanner(System.in);
-            int year = 0;
-            String month = "zero";
-            int day = 0;
-            int dayOfYear =0;
-            String answer = "Zero";
-            String errorCatcher ="";
-            FirstQuestion(year,scanner,errorCatcher);
-            SecondQuestion(month,scanner,errorCatcher);
-            ThirdQuestion(day,scanner,errorCatcher);
-            WhatDayOfYearIAm(month,day,year,dayOfYear);
-            System.out.println(dayOfYear);
-            wait(1000);
-            ForthQuestion(answer,scanner,running,errorCatcher);
+            int day = scanner.nextInt();
+            inputDay.setScanerDay(day);
+            System.out.println(inputDay.getScanerDay());
+            // int year = 0;
+            // String month = "zero";
+            // int dayOfYear =0;
+            // String answer = "Zero";
+            // String errorCatcher ="";
+            // FirstQuestion(year,scanner,errorCatcher);
+            // SecondQuestion(month,scanner,errorCatcher);
+            // ThirdQuestion(day,scanner,errorCatcher);
+            // WhatDayOfYearIAm(month,day,year,dayOfYear);
+            // System.out.println(dayOfYear);
+            // wait(1000);
+            // ForthQuestion(answer,scanner,running,errorCatcher);
         }
 
 
