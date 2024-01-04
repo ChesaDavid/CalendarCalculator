@@ -9,6 +9,7 @@ public class Year {
     }
     public void setScanerYear(int scanerYear){
         this.scanerYear = scanerYear;
+        System.out.println("Chosed year :" + scanerYear);
     }
     public void setCalculatedYear(int calculatedYear){
         this.calculatedYear = calculatedYear;

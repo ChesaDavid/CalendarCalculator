@@ -9,6 +9,7 @@ public class Day {
         else{
             this.scanerDay = scanerDay;
         }
+        System.out.println("Chosed day :"+ scanerDay);
     }
     public void setCalculatedDay(int calculatedDay){
         this.calculatedDay = calculatedDay;

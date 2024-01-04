@@ -12,16 +12,15 @@ public class Main {
         String errorChatcher;
         while(brain.running){
             FirstQuestion();
-            int localvarYear = scanner.nextInt();
-            year.setScanerYear(localvarYear);
+            year.setScanerYear(scanner.nextInt());
             SecondQuestion();
-            String localvarMonth = scanner.nextLine();
             errorChatcher = scanner.nextLine();
+            String localvarMonth = scanner.nextLine();
             month.setScanerMonth(localvarMonth);
             ThirdQuestion();
-            int localvarDay = scanner.nextInt();
-            day.setScanerDay(localvarDay);
-            WhatDayOfYearIAm(month.getScanerMonth(),day.getScanerDay(),year.getScanerYear(),day,brain);
+            wait(3000);
+            day.setScanerDay(scanner.nextInt());
+            WhatDayOfYearIAm(month, day, year, brain);
             Question(scanner, brain);
             calculate(day,month,year,brain);
             System.out.println("Year :"+year.getCalculatedYear());
@@ -52,9 +51,9 @@ public class Main {
 
 
     }
-    public static  void WhatDayOfYearIAm(String month , int day,int year, Day day2 ,Brain brain){
-        int startDay ;
-        switch (month) {
+    public static  void WhatDayOfYearIAm(Month month, Day day,Year year ,Brain brain){
+        int startDay;
+        switch (month.getScanerMonth()) {
             case "January":
                 startDay = 0;
                 break;
@@ -62,70 +61,70 @@ public class Main {
                 startDay = 30;
                 break;
             case "March":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 59;
                 } else {
                     startDay = 58;
                 }
                 break;
             case "April":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 90;
                 } else {
                     startDay = 89;
                 }
                 break;
             case "May":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 120;
                 } else {
                     startDay = 119;
                 }
                 break;
             case "June":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 151;
                 } else {
                     startDay = 150;
                 }
                 break;
             case "July":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 181;
                 } else {
                     startDay = 180;
                 }
                 break;
             case "August":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 212;
                 } else {
                     startDay = 211;
                 }
                 break;
             case "September":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 243;
                 } else {
                     startDay = 242;
                 }
                 break;
             case "October":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 273;
                 } else {
                     startDay = 272;
                 }
                 break;
             case "November":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 304;
                 } else {
                     startDay = 303;
                 }
                 break;
             case "December":
-                if (IsLeapYear(year)) {
+                if (IsLeapYear(year.getScanerYear())) {
                     startDay = 335;
                 } else {
                     startDay = 332;
@@ -138,7 +137,7 @@ public class Main {
                 break;
 
         }
-        day2.setCalculatedDay(day + startDay);
+        day.setCalculatedDay(startDay + day.getScanerDay());
         
     }
     public static void Question(Scanner scanner,Brain brain){
@@ -182,8 +181,8 @@ public class Main {
     }
     public static void lastQuestion(Scanner scanner,Brain brain){
         System.out.println("Do you wish to quit the program (y/n)?");
-        String answer = scanner.nextLine();
         String errorChatcher = scanner.nextLine();
+        String answer = scanner.nextLine();
         if(answer == "y"){
             brain.running = false;
         }
@@ -210,54 +209,78 @@ public class Main {
         }
         if(IsLeapYear(year.getCalculatedYear())){
             if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
+                day.setCalculatedDay(day.getCalculatedDay()-1);
                 month.setCalculatedMonth("Junuary");
             }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<60){
+                day.setCalculatedDay(day.getCalculatedDay()-31);
                 month.setCalculatedMonth("February");
             }else if(day.getCalculatedDay()>=60 && day.getCalculatedDay()<91){
+                day.setCalculatedDay(day.getCalculatedDay()-60);
                 month.setCalculatedMonth("March");
             }else if(day.getCalculatedDay()>=91 && day.getCalculatedDay()<121){
+                day.setCalculatedDay(day.getCalculatedDay()-91);
                 month.setCalculatedMonth("April");
             }else if(day.getCalculatedDay()>=121 && day.getCalculatedDay()<152){
+                day.setCalculatedDay(day.getCalculatedDay()-121);
                 month.setCalculatedMonth("May");
             }else if(day.getCalculatedDay()>=152 && day.getCalculatedDay()<182){
+                day.setCalculatedDay(day.getCalculatedDay()-152);
                 month.setCalculatedMonth("June");
             }else if(day.getCalculatedDay()>=182 && day.getCalculatedDay()<213){
+                day.setCalculatedDay(day.getCalculatedDay()-182);
                 month.setCalculatedMonth("July");
             }else if(day.getCalculatedDay()>=213 && day.getCalculatedDay()<244){
+                day.setCalculatedDay(day.getCalculatedDay()-213);
                 month.setCalculatedMonth("August");
             }else if(day.getCalculatedDay()>=244 && day.getCalculatedDay()<274){
+                day.setCalculatedDay(day.getCalculatedDay()-244);
                 month.setCalculatedMonth("September");
             }else if(day.getCalculatedDay() >=274 && day.getCalculatedDay()<305){
+                day.setCalculatedDay(day.getCalculatedDay()-274);
                 month.setCalculatedMonth("Ocomber");
             }else if(day.getCalculatedDay()>=305 && day.getCalculatedDay()<335){
+                day.setCalculatedDay(day.getCalculatedDay()-305);
                 month.setCalculatedMonth("November");
             }else if(day.getCalculatedDay()>335 && day.getCalculatedDay()<=366){
+                day.setCalculatedDay(day.getCalculatedDay()-335);
                 month.setCalculatedMonth("December");
             }
         }else{
            if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
+            day.setCalculatedDay(day.getCalculatedDay()-1);
                 month.setCalculatedMonth("Junuary");
             }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<=59){
+                day.setCalculatedDay(day.getCalculatedDay()-31);
                 month.setCalculatedMonth("February");
             }else if(day.getCalculatedDay()>=59 && day.getCalculatedDay()<=90){
+                day.setCalculatedDay(day.getCalculatedDay()-59);
                 month.setCalculatedMonth("March");
             }else if(day.getCalculatedDay()>=90 && day.getCalculatedDay()<=120){
+                day.setCalculatedDay(day.getCalculatedDay()-90);
                 month.setCalculatedMonth("April");
             }else if(day.getCalculatedDay()>=120 && day.getCalculatedDay()<=150){
+                day.setCalculatedDay(day.getCalculatedDay()-120);
                 month.setCalculatedMonth("May");
             }else if(day.getCalculatedDay()>=151 && day.getCalculatedDay()<=181){
+                day.setCalculatedDay(day.getCalculatedDay()-151);
                 month.setCalculatedMonth("June");
             }else if(day.getCalculatedDay()>=181 && day.getCalculatedDay()<=212){
+                day.setCalculatedDay(day.getCalculatedDay()-181);
                 month.setCalculatedMonth("July");
             }else if(day.getCalculatedDay()>=212 && day.getCalculatedDay()<=243){
+                day.setCalculatedDay(day.getCalculatedDay()-212);
                 month.setCalculatedMonth("August");
             }else if(day.getCalculatedDay()>=243 && day.getCalculatedDay()<=272){
+                day.setCalculatedDay(day.getCalculatedDay()-243);
                 month.setCalculatedMonth("September");
             }else if(day.getCalculatedDay() >=273 && day.getCalculatedDay()<=302){
+                day.setCalculatedDay(day.getCalculatedDay()-273);
                 month.setCalculatedMonth("Ocomber");
             }else if(day.getCalculatedDay()>=304 && day.getCalculatedDay()<=334){
+                day.setCalculatedDay(day.getCalculatedDay()-304);
                 month.setCalculatedMonth("November");
             }else if(day.getCalculatedDay()>334 && day.getCalculatedDay()<=365){
+                day.setCalculatedDay(day.getCalculatedDay()-334);
                 month.setCalculatedMonth("December");
             }
         }

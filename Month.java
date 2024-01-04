@@ -8,19 +8,11 @@ public class Month {
         return calculatedMonth;
     }
     public void setScanerMonth(String scanerMonth){
-        boolean validMonth = false;
-        switch (scanerMonth) {
-            case "January","February","March","April","May","June","July","August","September","Octomber","Noveber","December"->validMonth = true;
-            default->validMonth = false;
-        }
-        if(validMonth){
-            this.scanerMonth = scanerMonth;
-        }
-        else{
-            this.scanerMonth = "Error";
-        }
+        this.scanerMonth = scanerMonth;
+        System.out.println("Chosed month :" + scanerMonth);
     }
     public void setCalculatedMonth(String calculatedMonth){
         this.calculatedMonth = calculatedMonth;
+        
     }
 }
