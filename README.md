@@ -9,6 +9,7 @@ It is a program that you could acsses it from the terminal ,a code made intierly
 # About
 - Overview
     >"The two most powrful warriors are patiance and time" -Leo Tolstoy
+
 The project CalendarCalculator it was started from a thought that I had at a random time
 "How much is it untill a cartain date" so I new I had to make a code that do exactly that 
 so I can know exactly how much time I had.
