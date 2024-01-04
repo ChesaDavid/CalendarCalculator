@@ -21,9 +21,9 @@ public class Main {
             ThirdQuestion();
             int localvarDay = scanner.nextInt();
             day.setScanerDay(localvarDay);
-            WhatDayOfYearIAm(month.getScanerMonth(),day.getScanerDay(),year.getScanerYear(),day);
+            WhatDayOfYearIAm(month.getScanerMonth(),day.getScanerDay(),year.getScanerYear(),day,brain);
             Question(scanner, brain);
-            brain.calculate();
+            calculate(day,month,year,brain);
             System.out.println("Year :"+year.getCalculatedYear());
             System.out.println("Month :" + month.getCalculatedMonth());
             System.out.println("Day :" + day.getCalculatedDay());
@@ -52,7 +52,7 @@ public class Main {
 
 
     }
-    public static  void WhatDayOfYearIAm(String month , int day,int year, Day day2){
+    public static  void WhatDayOfYearIAm(String month , int day,int year, Day day2 ,Brain brain){
         int startDay ;
         switch (month) {
             case "January":
@@ -133,6 +133,8 @@ public class Main {
                 break;
             default:
                 startDay = -1;
+                System.out.println("Wrong input");
+                brain.running = false;
                 break;
 
         }
@@ -140,22 +142,24 @@ public class Main {
         
     }
     public static void Question(Scanner scanner,Brain brain){
-        System.out.println("What majurment of time do you want to chose>(days / weeks)");
-        String errorChecher;
-        String answer = scanner.nextLine();
-        errorChecher = scanner.nextLine();
-        if(answer == "days"){
-            System.out.println("How many days?");
-            int units = scanner.nextInt();
-            brain.setUnits(units);
-        }
-        else if (answer == "weeks") {
-            System.out.println("How many weeks?");
-            int units = scanner.nextInt();
-            brain.setUnits(units*7);
-        }else{
-            System.out.println("Wrong input");
-            brain.running = false;
+        System.out.println("What mejurment of time do you want to chose> 1 = days and 7 = weeks");
+        int answer = scanner.nextInt();
+        switch (answer) {
+            case 1:
+                System.out.println("How many days?");
+                int units = scanner.nextInt();
+                brain.setUnits(units);
+                break;
+            case 7:
+                System.out.println("How many weeks?");
+                int unitsw = scanner.nextInt();
+                unitsw = unitsw * 7;
+                brain.setUnits(unitsw);
+                break;
+            default:
+                System.out.println("Wrong input");
+                brain.running = false;
+                break;
         }
     }
     public static boolean IsLeapYear(int year){
@@ -179,6 +183,7 @@ public class Main {
     public static void lastQuestion(Scanner scanner,Brain brain){
         System.out.println("Do you wish to quit the program (y/n)?");
         String answer = scanner.nextLine();
+        String errorChatcher = scanner.nextLine();
         if(answer == "y"){
             brain.running = false;
         }
@@ -192,6 +197,69 @@ public class Main {
         catch(InterruptedException ex)
         {
             Thread.currentThread().interrupt();
+        }
+    }
+    public static void calculate(Day day,Month month,Year year,Brain brain){
+        int totalDays = day.getCalculatedDay() + brain.getUnits();
+        int totalYears = totalDays / 365;
+        totalYears = year.getScanerYear() + totalYears;
+        year.setCalculatedYear(totalYears);
+        day.setCalculatedDay(totalDays%365);
+        if(IsLeapYear(year.getCalculatedYear()-1) && day.getCalculatedDay() == 1){
+            year.setCalculatedYear(year.getCalculatedYear()-1);
+        }
+        if(IsLeapYear(year.getCalculatedYear())){
+            if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
+                month.setCalculatedMonth("Junuary");
+            }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<60){
+                month.setCalculatedMonth("February");
+            }else if(day.getCalculatedDay()>=60 && day.getCalculatedDay()<91){
+                month.setCalculatedMonth("March");
+            }else if(day.getCalculatedDay()>=91 && day.getCalculatedDay()<121){
+                month.setCalculatedMonth("April");
+            }else if(day.getCalculatedDay()>=121 && day.getCalculatedDay()<152){
+                month.setCalculatedMonth("May");
+            }else if(day.getCalculatedDay()>=152 && day.getCalculatedDay()<182){
+                month.setCalculatedMonth("June");
+            }else if(day.getCalculatedDay()>=182 && day.getCalculatedDay()<213){
+                month.setCalculatedMonth("July");
+            }else if(day.getCalculatedDay()>=213 && day.getCalculatedDay()<244){
+                month.setCalculatedMonth("August");
+            }else if(day.getCalculatedDay()>=244 && day.getCalculatedDay()<274){
+                month.setCalculatedMonth("September");
+            }else if(day.getCalculatedDay() >=274 && day.getCalculatedDay()<305){
+                month.setCalculatedMonth("Ocomber");
+            }else if(day.getCalculatedDay()>=305 && day.getCalculatedDay()<335){
+                month.setCalculatedMonth("November");
+            }else if(day.getCalculatedDay()>335 && day.getCalculatedDay()<=366){
+                month.setCalculatedMonth("December");
+            }
+        }else{
+           if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
+                month.setCalculatedMonth("Junuary");
+            }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<=59){
+                month.setCalculatedMonth("February");
+            }else if(day.getCalculatedDay()>=59 && day.getCalculatedDay()<=90){
+                month.setCalculatedMonth("March");
+            }else if(day.getCalculatedDay()>=90 && day.getCalculatedDay()<=120){
+                month.setCalculatedMonth("April");
+            }else if(day.getCalculatedDay()>=120 && day.getCalculatedDay()<=150){
+                month.setCalculatedMonth("May");
+            }else if(day.getCalculatedDay()>=151 && day.getCalculatedDay()<=181){
+                month.setCalculatedMonth("June");
+            }else if(day.getCalculatedDay()>=181 && day.getCalculatedDay()<=212){
+                month.setCalculatedMonth("July");
+            }else if(day.getCalculatedDay()>=212 && day.getCalculatedDay()<=243){
+                month.setCalculatedMonth("August");
+            }else if(day.getCalculatedDay()>=243 && day.getCalculatedDay()<=272){
+                month.setCalculatedMonth("September");
+            }else if(day.getCalculatedDay() >=273 && day.getCalculatedDay()<=302){
+                month.setCalculatedMonth("Ocomber");
+            }else if(day.getCalculatedDay()>=304 && day.getCalculatedDay()<=334){
+                month.setCalculatedMonth("November");
+            }else if(day.getCalculatedDay()>334 && day.getCalculatedDay()<=365){
+                month.setCalculatedMonth("December");
+            }
         }
     }
 }
