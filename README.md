@@ -14,11 +14,13 @@ The project CalendarCalculator it was started from a thought that I had at a ran
 "How much is it untill a cartain date" so I new I had to make a code that do exactly that 
 so I can know exactly how much time I had.
 - The prosses
+
     It was realy fast to finish this project even tho I have another project going on and so this wasn't my main focus
 - Personal take on the project
+
     It is on the 
     ````bash
-    AndThatIsIt!.md
+    AndThatIsIt.md
     `````
     file
 
