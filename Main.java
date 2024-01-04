@@ -181,10 +181,23 @@ public class Main {
     }
     public static void lastQuestion(Scanner scanner,Brain brain){
         System.out.println("Do you wish to quit the program (y/n)?");
-        String errorChatcher = scanner.nextLine();
-        String answer = scanner.nextLine();
-        if(answer == "y"){
-            brain.running = false;
+        boolean exit = true;
+        while (exit) {
+            String errorChatcher = scanner.nextLine();
+            String answer = scanner.nextLine();
+            System.out.print("You chose to ");
+            switch (answer) {
+                case "y": System.out.print("exit the program, bye!");
+                            brain.running=false;
+                            exit=false;
+                            break;
+                case "n": System.out.println("remain .Let's continue then!");
+                            exit=false;
+                            break;
+                default:System.out.println(" -Syntax error - Wrong input"); 
+                        System.out.println(answer + " is not y or n pleas try again!");
+                        break;
+            }    
         }
     }
     public static void wait(int ms)
