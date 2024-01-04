@@ -4,29 +4,30 @@ public class Main {
 
 
     public static void main(String[] args) {
-        boolean running = true;
         Day day = new Day();
         Month month = new Month();
         Year year = new Year();
         Brain brain = new Brain();
         Scanner scanner = new Scanner(System.in);
-        while(running){
+        String errorChatcher;
+        while(brain.running){
             FirstQuestion();
             int localvarYear = scanner.nextInt();
             year.setScanerYear(localvarYear);
             SecondQuestion();
             String localvarMonth = scanner.nextLine();
+            errorChatcher = scanner.nextLine();
             month.setScanerMonth(localvarMonth);
             ThirdQuestion();
             int localvarDay = scanner.nextInt();
             day.setScanerDay(localvarDay);
             WhatDayOfYearIAm(month.getScanerMonth(),day.getScanerDay(),year.getScanerYear(),day);
-            Question(scanner, running , brain);
+            Question(scanner, brain);
             brain.calculate();
             System.out.println("Year :"+year.getCalculatedYear());
             System.out.println("Month :" + month.getCalculatedMonth());
             System.out.println("Day :" + day.getCalculatedDay());
-            lastQuestion(running, scanner);
+            lastQuestion( scanner,brain);
             wait(1000);
         }
 
@@ -138,9 +139,11 @@ public class Main {
         day2.setCalculatedDay(day + startDay);
         
     }
-    public static void Question(Scanner scanner,boolean running ,Brain brain){
+    public static void Question(Scanner scanner,Brain brain){
         System.out.println("What majurment of time do you want to chose>(days / weeks)");
+        String errorChecher;
         String answer = scanner.nextLine();
+        errorChecher = scanner.nextLine();
         if(answer == "days"){
             System.out.println("How many days?");
             int units = scanner.nextInt();
@@ -152,7 +155,7 @@ public class Main {
             brain.setUnits(units*7);
         }else{
             System.out.println("Wrong input");
-            running = false;
+            brain.running = false;
         }
     }
     public static boolean IsLeapYear(int year){
@@ -173,11 +176,11 @@ public class Main {
             return false;
         }
     }
-    public static void lastQuestion(boolean running,Scanner scanner){
+    public static void lastQuestion(Scanner scanner,Brain brain){
         System.out.println("Do you wish to quit the program (y/n)?");
         String answer = scanner.nextLine();
         if(answer == "y"){
-            running = false;
+            brain.running = false;
         }
     }
     public static void wait(int ms)
