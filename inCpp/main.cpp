@@ -184,13 +184,132 @@ void calculate(){
     if(isLeapYear()){
         calendar.setResultYear(calendar.getBrainRead()/366);
         calendar.setResultDay(calendar.getBrainRead()%366);
+        if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
+            calendar.setResultMonth("January");
+            calendar.setResultDay(calendar.getResultDay()-0);
+        }
+        else if(calendar.getResultDay()>=31 && calendar.getResultDay() < 61){
+            calendar.setResultMonth("February");
+            calendar.setResultDay(calendar.getResultDay()-30);
+        }
+        else if(calendar.getResultDay() >=61 && calendar.getResultDay() < 93){
+            calendar.setResultMonth("March");
+            calendar.setResultDay(calendar.getResultDay()-60);
+        }
+        else if(calendar.getResultDay()>=93 && calendar.getResultDay() <124){
+            calendar.setResultMonth("April");
+            calendar.setResultDay(calendar.getResultDay()-92);
+        }
+        else if(calendar.getResultDay()>=124 && calendar.getResultDay()<156){
+            calendar.setResultMonth("May");
+            calendar.setResultDay(calendar.getResultDay()-123);
+        }
+        else if(calendar.getResultDay()>=156 && calendar.getResultDay()<187){
+            calendar.setResultMonth("June");
+            calendar.setResultDay(calendar.getResultDay()-155);
+        }
+        else if(calendar.getResultDay() >=187 && calendar.getResultDay() <219){
+            calendar.setResultMonth("July");
+            calendar.setResultDay(calendar.getResultDay()-186);
+        }
+        else if(calendar.getResultDay()>=219 && calendar.getResultDay() < 241){
+            calendar.setResultMonth("August");
+            calendar.setResultDay(calendar.getResultDay()-218);
+        }
+        else if(calendar.getResultDay()>=241 && calendar.getResultDay()<272){
+            calendar.setResultMonth("September");
+            calendar.setResultDay(calendar.getResultDay()-240);
+        }
+        else if(calendar.getResultDay()>=272 && calendar.getResultDay()<306){
+            calendar.setResultMonth("Octomber");
+            calendar.setResultDay(calendar.getResultDay()-271);
+        }
+        else if(calendar.getResultDay()>=306 && calendar.getResultDay()<336){
+            calendar.setResultMonth("November");
+            calendar.setResultDay(calendar.getResultDay()-305);
+        }
+        else if(calendar.getResultDay()>=336 && calendar.getResultDay()<367){
+            calendar.setResultMonth("December");
+            calendar.setResultDay(calendar.getResultDay()-335);
+        }
     }
     else{
         calendar.setResultDay(calendar.getBrainRead()%365);
         calendar.setResultDay(calendar.getBrainRead()%365);
+        if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
+            calendar.setResultMonth("January");
+            calendar.setResultDay(calendar.getResultDay()-0);
+        }
+        else if(calendar.getResultDay()>=31 && calendar.getResultDay() < 60){
+            calendar.setResultMonth("February");
+            calendar.setResultDay(calendar.getResultDay()-30);
+        }
+        else if(calendar.getResultDay() >=60 && calendar.getResultDay() < 92){
+            calendar.setResultMonth("March");
+            calendar.setResultDay(calendar.getResultDay()-59);
+        }
+        else if(calendar.getResultDay()>=92 && calendar.getResultDay() <123){
+            calendar.setResultMonth("April");
+            calendar.setResultDay(calendar.getResultDay()-91);
+        }
+        else if(calendar.getResultDay()>=123 && calendar.getResultDay()<155){
+            calendar.setResultMonth("May");
+            calendar.setResultDay(calendar.getResultDay()-122);
+        }
+        else if(calendar.getResultDay()>=155 && calendar.getResultDay()<186){
+            calendar.setResultMonth("June");
+            calendar.setResultDay(calendar.getResultDay()-154);
+        }
+        else if(calendar.getResultDay() >=186 && calendar.getResultDay() <218){
+            calendar.setResultMonth("July");
+            calendar.setResultDay(calendar.getResultDay()-185);
+        }
+        else if(calendar.getResultDay()>=218 && calendar.getResultDay() < 240){
+            calendar.setResultMonth("August");
+            calendar.setResultDay(calendar.getResultDay()-217);
+        }
+        else if(calendar.getResultDay()>=240 && calendar.getResultDay()<271){
+            calendar.setResultMonth("September");
+            calendar.setResultDay(calendar.getResultDay()-239);
+        }
+        else if(calendar.getResultDay()>=271 && calendar.getResultDay()<305){
+            calendar.setResultMonth("Octomber");
+            calendar.setResultDay(calendar.getResultDay()-270);
+        }
+        else if(calendar.getResultDay()>=305 && calendar.getResultDay()<335){
+            calendar.setResultMonth("November");
+            calendar.setResultDay(calendar.getResultDay()-304);
+        }
+        else if(calendar.getResultDay()>=335 && calendar.getResultDay()<366){
+            calendar.setResultMonth("December");
+            calendar.setResultDay(calendar.getResultDay()-334);
+        }
     }
     
 
+}
+void Show(){
+    cout<<"And the calculations say that will be on: \n";
+    cout<<"Day   |   Month   | Year    \n";
+    cout<<calendar.getResultDay()<<"     "<<calendar.getResulMonth()<<"     "<<calendar.getResulYear()<<endl;
+}
+void decision(){
+    bool stop = true;
+    while(stop){
+        cout<<"Do you want to continue calculating? (y/n)?\n";
+        char answer;
+        cin>>answer;
+        if(answer == 'y'){
+            stop = false;
+        }
+        else if (answer == 'n'){
+            stop = false;
+            running = false;
+        }
+        else{
+            cout<<"Wrong input \n";
+        }
+    }
 }
 int main(){
     
@@ -203,7 +322,8 @@ int main(){
         Qustion3();
         validation3();
         option1();
-        running = false;
+        Show();
+        decision();
     }
     
     
