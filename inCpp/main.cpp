@@ -62,20 +62,75 @@ class Calendar{
             brainResult = brainResultC;
         }
 };
-Calendar calendar = Calendar();
+
+
 int readDayC,readYearC,resultDayC,resultYearC;
 string readMonthC,resultMonthC;
+Calendar calendar = Calendar();
 void Qustion1(){
     cout<<"From what year do you want to start de calculation\n";
     cout<<"Write year: ";
     cin>>readYearC;
     calendar.setReadYear(readYearC);
 }
+int dayOfYear= 0;
+void dayOfYearNow(){
+    if(calendar.getReadMonth()=="January"){
+        dayOfYear = 0;
+    }
+    if(calendar.getReadMonth()=="February"){
+        dayOfYear = 30;
+    }
+    if(calendar.getReadMonth()=="March"){
+        dayOfYear = 59;
+    }
+    if(calendar.getReadMonth()=="April"){
+        dayOfYear = 90;
+    }
+    if(calendar.getReadMonth()=="May"){
+        dayOfYear = 120;
+    }
+    if(calendar.getReadMonth()=="June"){
+        dayOfYear = 151;
+    }
+    if(calendar.getReadMonth()=="July"){
+        dayOfYear = 181;
+    }
+    if(calendar.getReadMonth()=="August"){
+        dayOfYear = 212;
+    }
+    if(calendar.getReadMonth()=="September"){
+        dayOfYear = 244;
+    }
+    if(calendar.getReadMonth()=="Octomber"){
+        dayOfYear = 274;
+    }
+    if(calendar.getReadMonth()=="November"){
+        dayOfYear = 305;
+    }
+    if(calendar.getReadMonth()=="December"){
+        dayOfYear = 334;
+    }
+}
 void Qustion2(){
     cout<<"From what month of the year do you want to start de calculation\n";
     cout<<"Write month: ";
     cin>>readMonthC;
     calendar.setReadMonth(readMonthC);
+}
+bool isLeapYear(){
+    if(calendar.getReadYear()%4 == 0){
+        if(calendar.getReadYear()%100==0){
+            if(calendar.getReadYear()%400 == 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
 }
 void Qustion3(){
     cout<<"From what day of the month do you want to start de calculation\n";
@@ -113,6 +168,7 @@ void validation2(){
             Qustion2();     
         }
     }
+    dayOfYearNow();
     
 }
 void validation3(){
@@ -166,24 +222,11 @@ void option1(){
     }
 
 }
-bool isLeapYear(){
-    if(calendar.getReadYear()%4 == 0){
-        if(calendar.getReadYear()%100==0){
-            if(calendar.getReadYear()%400 == 0){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        return true;
-    }
-    return false;
-}
+
 void calculate(){
     if(isLeapYear()){
         calendar.setResultYear(calendar.getBrainRead()/366);
-        calendar.setResultDay(calendar.getBrainRead()%366);
+        calendar.setResultDay((calendar.getBrainRead()+dayOfYear+calendar.getReadDay())%366);
         if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
             calendar.setResultMonth("January");
             calendar.setResultDay(calendar.getResultDay()-0);
