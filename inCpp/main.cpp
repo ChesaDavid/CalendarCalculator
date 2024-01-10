@@ -67,6 +67,20 @@ class Calendar{
 int readDayC,readYearC,resultDayC,resultYearC;
 string readMonthC,resultMonthC;
 Calendar calendar = Calendar();
+bool isLeapYear(){
+    if(calendar.getReadYear()%4 == 0){
+        if(calendar.getReadYear()%100==0){
+            if(calendar.getReadYear()%400 == 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
 void Qustion1(){
     cout<<"From what year do you want to start de calculation\n";
     cout<<"Write year: ";
@@ -83,33 +97,63 @@ void dayOfYearNow(){
     }
     if(calendar.getReadMonth()=="March"){
         dayOfYear = 59;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="April"){
         dayOfYear = 90;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="May"){
         dayOfYear = 120;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="June"){
         dayOfYear = 151;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="July"){
         dayOfYear = 181;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="August"){
         dayOfYear = 212;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="September"){
         dayOfYear = 244;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="Octomber"){
         dayOfYear = 274;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="November"){
         dayOfYear = 305;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
     if(calendar.getReadMonth()=="December"){
         dayOfYear = 334;
+        if(isLeapYear()){
+            dayOfYear++;
+        }
     }
 }
 void Qustion2(){
@@ -117,20 +161,6 @@ void Qustion2(){
     cout<<"Write month: ";
     cin>>readMonthC;
     calendar.setReadMonth(readMonthC);
-}
-bool isLeapYear(){
-    if(calendar.getReadYear()%4 == 0){
-        if(calendar.getReadYear()%100==0){
-            if(calendar.getReadYear()%400 == 0){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        return true;
-    }
-    return false;
 }
 void Qustion3(){
     cout<<"From what day of the month do you want to start de calculation\n";
@@ -225,7 +255,8 @@ void option1(){
 
 void calculate(){
     if(isLeapYear()){
-        calendar.setResultYear(calendar.getBrainRead()/366);
+        calendar.setBrainRead(calendar.getBrainRead()+dayOfYear);
+        calendar.setResultYear(calendar.getReadYear() + calendar.getBrainRead()/366);
         calendar.setResultDay((calendar.getBrainRead()+dayOfYear+calendar.getReadDay())%366);
         if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
             calendar.setResultMonth("January");

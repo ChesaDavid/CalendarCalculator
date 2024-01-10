@@ -109,7 +109,7 @@ public class Main {
                     startDay = 242;
                 }
                 break;
-            case "October":
+            case "Octomber":
                 if (IsLeapYear(year.getScanerYear())) {
                     startDay = 273;
                 } else {
