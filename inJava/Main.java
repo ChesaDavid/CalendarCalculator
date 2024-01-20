@@ -9,8 +9,39 @@ public class Main {
         Year year = new Year();
         Brain brain = new Brain();
         Scanner scanner = new Scanner(System.in);
-        String errorChatcher;
-        while(brain.running){
+        String errorChatcher ="";
+        Diffrance diffrance = new Diffrance();
+        boolean running = true;
+        while(running){
+            
+            menu();
+            int option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                    calculateTo(day, month, year, brain, scanner, errorChatcher);
+                    break;
+                case 2:
+                    diffrance.Diffrance();
+                    break;
+                case 3:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid input");
+                    break;
+            }
+        }
+        
+
+    }
+    public static void menu(){
+        System.out.println();
+        System.out.println("1.Calculate from a date using days or weeks");
+        System.out.println("2.Calculate the diffrance between to dates");
+        System.out.println("3.Exit");
+        System.out.println("Option:");
+    }
+    public static void calculateTo(Day day,Month month , Year year, Brain brain,Scanner scanner, String errorChatcher){
             FirstQuestion();
             year.setScanerYear(scanner.nextInt());
             SecondQuestion();
@@ -25,10 +56,9 @@ public class Main {
             calculate(day,month,year,brain);
             System.out.println("Year :"+year.getCalculatedYear());
             System.out.println("Month :" + month.getCalculatedMonth());
+            day.setCalculatedDay(day.getCalculatedDay());
             System.out.println("Day :" + day.getCalculatedDay());
-            lastQuestion( scanner,brain);
             wait(1000);
-        }
 
 
     }
@@ -179,27 +209,6 @@ public class Main {
             return false;
         }
     }
-    public static void lastQuestion(Scanner scanner,Brain brain){
-        System.out.println("Do you wish to quit the program (y/n)?");
-        boolean exit = true;
-        while (exit) {
-            String errorChatcher = scanner.nextLine();
-            String answer = scanner.nextLine();
-            System.out.print("You chose to ");
-            switch (answer) {
-                case "y": System.out.print("exit the program, bye!");
-                            brain.running=false;
-                            exit=false;
-                            break;
-                case "n": System.out.println("remain .Let's continue then!");
-                            exit=false;
-                            break;
-                default:System.out.println(" -Syntax error - Wrong input"); 
-                        System.out.println(answer + " is not y or n pleas try again!");
-                        break;
-            }    
-        }
-    }
     public static void wait(int ms)
     {
         try
@@ -223,7 +232,7 @@ public class Main {
         if(IsLeapYear(year.getCalculatedYear())){
             if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
                 day.setCalculatedDay(day.getCalculatedDay()-1);
-                month.setCalculatedMonth("Junuary");
+                month.setCalculatedMonth("January");
             }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<60){
                 day.setCalculatedDay(day.getCalculatedDay()-31);
                 month.setCalculatedMonth("February");
@@ -261,7 +270,7 @@ public class Main {
         }else{
            if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
             day.setCalculatedDay(day.getCalculatedDay()-1);
-                month.setCalculatedMonth("Junuary");
+                month.setCalculatedMonth("January");
             }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<=59){
                 day.setCalculatedDay(day.getCalculatedDay()-31);
                 month.setCalculatedMonth("February");
