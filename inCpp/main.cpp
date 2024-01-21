@@ -386,6 +386,346 @@ void decision(){
         }
     }
 }
+int firstYear,firstDay,firstMonth,secondYear,secondDay,secondMonth;
+int diffranceMonth(int graterM,int smallarM,int graterD,int smallarD){
+    int diffranceOf = 0;
+    int diffranceMonth = graterM - smallarM;
+    int January = 31;
+    int February = 28;
+    int March = 31;
+    int April = 30;
+    int May = 31;
+    int June = 30;
+    int July = 31;
+    int August = 31;
+    int September = 30;
+    int Octomber = 31;
+    int November = 30;
+    switch (smallarM)
+    {
+    case 1:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=January-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=January-smallarD+February+graterD;
+                break;
+            case 3:
+                diffranceOf=January-smallarD+February+March+graterD;
+                break;
+            case 4:
+                diffranceOf=January-smallarD+February+March+April+graterD;
+                break;
+            case 5:
+                diffranceOf=January-smallarD+February+March+April+May+graterD;
+                break;
+            case 6:
+                diffranceOf=January-smallarD+February+March+April+May+June+graterD;
+                break;
+            case 7:
+                diffranceOf=January-smallarD+February+March+April+May+June+July+graterD;
+                break;
+            case 8:
+                diffranceOf=January-smallarD+February+March+April+May+June+July+August+graterD;
+                break;
+            case 9:
+                diffranceOf=January-smallarD+February+March+April+May+June+July+August+September+graterD;
+                break;
+            case 10:
+                diffranceOf=January-smallarD+February+March+April+May+June+July+August+September+Octomber+graterD;
+                break;
+            case 11:
+                diffranceOf=January-smallarD+February+March+April+May+June+July+August+September+Octomber+November+graterD;
+                break;
+        }
+        break;
+    case 2:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=February-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=February-smallarD+March+graterD;
+                break;
+            case 3:
+                diffranceOf=February-smallarD+April+March+graterD;
+                break;
+            case 4:
+                diffranceOf=February-smallarD+May+March+April+graterD;
+                break;
+            case 5:
+                diffranceOf=February-smallarD+June+March+April+May+graterD;
+                break;
+            case 6:
+                diffranceOf=February-smallarD+July+March+April+May+June+graterD;
+                break;
+            case 7:
+                diffranceOf=February-smallarD+August+March+April+May+June+July+graterD;
+                break;
+            case 8:
+                diffranceOf=February-smallarD+September+March+April+May+June+July+August+graterD;
+                break;
+            case 9:
+                diffranceOf=February-smallarD+Octomber+March+April+May+June+July+August+September+graterD;
+                break;
+            case 10:
+                diffranceOf=February-smallarD+November+March+April+May+June+July+August+September+Octomber+graterD;
+                break;
+        }
+        break;
+    case 3:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=March-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=March-smallarD+April+graterD;
+                break;
+            case 3:
+                diffranceOf=March-smallarD+April+May+graterD;
+                break;
+            case 4:
+                diffranceOf=March-smallarD+May+June+April+graterD;
+                break;
+            case 5:
+                diffranceOf=March-smallarD+June+July+April+May+graterD;
+                break;
+            case 6:
+                diffranceOf=March-smallarD+July+August+April+May+June+graterD;
+                break;
+            case 7:
+                diffranceOf=March-smallarD+August+September+April+May+June+July+graterD;
+                break;
+            case 8:
+                diffranceOf=March-smallarD+September+Octomber+April+May+June+July+August+graterD;
+                break;
+            case 9:
+                diffranceOf=March-smallarD+Octomber+November+April+May+June+July+August+September+graterD;
+                break;
+        }
+        break;
+    case 4:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=April-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=April-smallarD+May+graterD;
+                break;
+            case 3:
+                diffranceOf=April-smallarD+June+May+graterD;
+                break;
+            case 4:
+                diffranceOf=April-smallarD+May+June+July+graterD;
+                break;
+            case 5:
+                diffranceOf=April-smallarD+June+July+August+May+graterD;
+                break;
+            case 6:
+                diffranceOf=April-smallarD+July+August+September+May+June+graterD;
+                break;
+            case 7:
+                diffranceOf=April-smallarD+August+September+Octomber+May+June+July+graterD;
+                break;
+            case 8:
+                diffranceOf=April-smallarD+September+Octomber+November+May+June+July+August+graterD;
+                break;
+        }
+        break;
+    case 5:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=May-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=May-smallarD+June+graterD;
+                break;
+            case 3:
+                diffranceOf=May-smallarD+June+July+graterD;
+                break;
+            case 4:
+                diffranceOf=May-smallarD+August+June+July+graterD;
+                break;
+            case 5:
+                diffranceOf=May-smallarD+June+July+August+September+graterD;
+                break;
+            case 6:
+                diffranceOf=May-smallarD+July+August+September+Octomber+June+graterD;
+                break;
+            case 7:
+                diffranceOf=May-smallarD+August+September+Octomber+November+June+July+graterD;
+                break;
+        }
+        break;
+    case 6:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=June-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=June-smallarD+July+graterD;
+                break;
+            case 3:
+                diffranceOf=June-smallarD+August+July+graterD;
+                break;
+            case 4:
+                diffranceOf=June-smallarD+August+September+July+graterD;
+                break;
+            case 5:
+                diffranceOf=June-smallarD+Octomber+July+August+September+graterD;
+                break;
+            case 6:
+                diffranceOf=June-smallarD+July+August+September+Octomber+November+graterD;
+                break;
+        }
+        break;
+    case 7:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=July-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=July-smallarD+August+graterD;
+                break;
+            case 3:
+                diffranceOf=July-smallarD+August+September+graterD;
+                break;
+            case 4:
+                diffranceOf=July-smallarD+August+September+Octomber+graterD;
+                break;
+            case 5:
+                diffranceOf=July-smallarD+Octomber+November+August+September+graterD;
+                break;
+        }
+        break;
+    case 8:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=August-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=August-smallarD+September+graterD;
+                break;
+            case 3:
+                diffranceOf=August-smallarD+Octomber+September+graterD;
+                break;
+            case 4:
+                diffranceOf=August-smallarD+November+September+Octomber+graterD;
+                break;
+        }
+        break;
+    case 9:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=September-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=September-smallarD+Octomber+graterD;
+                break;
+            case 3:
+                diffranceOf=September-smallarD+Octomber+November+graterD;
+                break;
+        }
+        break;
+    case 10:
+        switch (diffranceMonth)
+        {
+            case 1:
+                diffranceOf=Octomber-smallarD+graterD;
+                break;
+            case 2:
+                diffranceOf=Octomber-smallarD+November+graterD;
+                break;
+        }
+        break;
+    case 11:
+        diffranceMonth=November=smallarD+graterD;
+        break;
+    }
+    return diffranceMonth;
+}
+void secondChoice(){
+    cout<<"The function does not take in consideration the lap year"<<endl;
+    cout<<"First date (exemple 31.12.2023)"<<endl;
+    cout<<"Day:";
+    cin>>firstDay;
+    cout<<endl;
+    cout<<"Month:";
+    cin>>firstMonth;
+    cout<<endl;
+    cout<<"Year:";
+    cin>>firstYear;
+    cout<<endl;
+    cout<<"Second date (exemple 30.12.2023)"<<endl;
+    cout<<"Day:";
+    cin>>secondDay;
+    cout<<endl;
+    cout<<"Month:";
+    cin>>secondMonth;
+    cout<<endl;
+    cout<<"Year:";
+    cin>>secondYear;
+    cout<<endl;
+    if(firstYear-secondYear<0){
+        if(firstMonth-secondMonth<0){
+            cout<<"The diffrance is of "<<secondYear-firstYear<<" year/s"<<endl;
+            cout<<"And "<<diffranceMonth(secondMonth,firstMonth,secondDay,firstDay)<<" day/s"<<endl;
+        }else if(firstMonth-secondMonth>0){
+            cout<<"The diffrance is of "<<secondYear-firstYear<<" year/s"<<endl;
+            cout<<"And "<<diffranceMonth(firstMonth,secondMonth,firstDay,secondDay)<<" day/s"<<endl;
+        }else{
+            if(firstDay-secondDay<=0){
+                cout<<"The diffrance is of "<<secondYear-firstYear<<" year/s"<<endl;
+                cout<<"And "<<secondDay-firstDay<<" day/s"<<endl;
+            }else{
+                cout<<"The diffrance is of "<<secondYear-firstYear<<" year/s"<<endl;
+                cout<<"And "<<firstDay-secondDay<<" day/s"<<endl;
+            }   
+        }
+    }else if(firstYear-secondYear>0){
+        if(firstMonth-secondMonth<0){
+            cout<<"The diffrance is of "<<firstYear-secondYear<<" year/s"<<endl;
+            cout<<"And "<<diffranceMonth(secondMonth,firstMonth,secondDay,firstDay)<<" day/s"<<endl;
+        }else if(firstMonth-secondMonth>0){
+            cout<<"The diffrance is of "<<firstYear-secondYear<<" year/s"<<endl;
+            cout<<"And "<<diffranceMonth(firstMonth,secondMonth,firstDay,secondDay)<<" day/s"<<endl;
+        }else{
+            if(firstDay-secondDay<=0){
+                cout<<"The diffrance is of "<<firstYear-secondYear<<" year/s"<<endl;
+                cout<<"And "<<secondDay-firstDay<<" day/s"<<endl;
+            }else{
+                cout<<"The diffrance is of "<<firstYear-secondYear<<" year/s"<<endl;
+                cout<<"And "<<firstDay-secondDay<<" day/s"<<endl;
+            }   
+        }
+    }else{
+        if(firstMonth-secondMonth<0){
+            cout<<"The diffrance is of "<<diffranceMonth(secondMonth,firstMonth,secondDay,firstDay)<<" day/s"<<endl;
+        }else if(firstMonth-secondMonth>0){
+            cout<<"The diffrance is of "<<diffranceMonth(firstMonth,secondMonth,firstDay,secondDay)<<" day/s"<<endl;
+        }else{
+            if(firstDay-secondDay<0){
+                cout<<"The diffrance is of "<<secondDay-firstDay<<" day/s"<<endl;
+            }else if(firstDay-secondDay>0){
+                cout<<"The diffrance is of "<<firstDay-secondDay<<" day/s"<<endl;
+            }else{
+                cout<<"The dates are similar"<<endl;
+            }
+        }
+    }
+    
+    
+}
 int main(){
     
     while (running)
@@ -408,14 +748,12 @@ int main(){
             Show();
         }
         else if(decision == 2){
-
+            secondChoice();
         }
         else if(decision == 3){
             running = false;
         }else{
             cout<<" Invalid input";
         }
-    }
-    
-    
+        }
 }
