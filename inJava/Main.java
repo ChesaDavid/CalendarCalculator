@@ -88,76 +88,76 @@ public class Main {
                 startDay = 0;
                 break;
             case "February":
-                startDay = 30;
+                startDay = 31;
                 break;
             case "March":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 59;
+                    startDay = 60;
                 } else {
-                    startDay = 58;
+                    startDay = 59;
                 }
                 break;
             case "April":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 90;
+                    startDay = 91;
                 } else {
-                    startDay = 89;
+                    startDay = 90;
                 }
                 break;
             case "May":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 120;
+                    startDay = 121;
                 } else {
-                    startDay = 119;
+                    startDay = 120;
                 }
                 break;
             case "June":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 151;
+                    startDay = 152;
                 } else {
-                    startDay = 150;
+                    startDay = 151;
                 }
                 break;
             case "July":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 181;
+                    startDay = 182;
                 } else {
-                    startDay = 180;
+                    startDay = 181;
                 }
                 break;
             case "August":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 212;
+                    startDay = 213;
                 } else {
-                    startDay = 211;
+                    startDay = 212;
                 }
                 break;
             case "September":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 243;
+                    startDay = 244;
                 } else {
-                    startDay = 242;
+                    startDay = 243;
                 }
                 break;
             case "Octomber":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 273;
+                    startDay = 274;
                 } else {
-                    startDay = 272;
+                    startDay = 273;
                 }
                 break;
             case "November":
                 if (IsLeapYear(year.getScanerYear())) {
-                    startDay = 304;
+                    startDay = 305;
                 } else {
-                    startDay = 303;
+                    startDay = 304;
                 }
                 break;
             case "December":
                 if (IsLeapYear(year.getScanerYear())) {
                     startDay = 335;
                 } else {
-                    startDay = 332;
+                    startDay = 334;
                 }
                 break;
             default:
@@ -230,19 +230,19 @@ public class Main {
             year.setCalculatedYear(year.getCalculatedYear()-1);
         }
         if(IsLeapYear(year.getCalculatedYear())){
-            if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<31){
+            if(day.getCalculatedDay()>=1 && day.getCalculatedDay()<32){
                 day.setCalculatedDay(day.getCalculatedDay()-1);
                 month.setCalculatedMonth("January");
-            }else if(day.getCalculatedDay()>=31 && day.getCalculatedDay()<60){
+            }else if(day.getCalculatedDay()>=32 && day.getCalculatedDay()<61){
                 day.setCalculatedDay(day.getCalculatedDay()-31);
                 month.setCalculatedMonth("February");
-            }else if(day.getCalculatedDay()>=60 && day.getCalculatedDay()<91){
+            }else if(day.getCalculatedDay()>=61 && day.getCalculatedDay()<92){
                 day.setCalculatedDay(day.getCalculatedDay()-60);
                 month.setCalculatedMonth("March");
-            }else if(day.getCalculatedDay()>=91 && day.getCalculatedDay()<121){
+            }else if(day.getCalculatedDay()>=92 && day.getCalculatedDay()<122){
                 day.setCalculatedDay(day.getCalculatedDay()-91);
                 month.setCalculatedMonth("April");
-            }else if(day.getCalculatedDay()>=121 && day.getCalculatedDay()<152){
+            }else if(day.getCalculatedDay()>=122 && day.getCalculatedDay()<153){
                 day.setCalculatedDay(day.getCalculatedDay()-121);
                 month.setCalculatedMonth("May");
             }else if(day.getCalculatedDay()>=152 && day.getCalculatedDay()<182){
