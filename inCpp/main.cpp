@@ -93,40 +93,40 @@ void dayOfYearNow(){
         dayOfYear = 0;
     }
     if(calendar.getReadMonth()=="February"){
-        dayOfYear = 30;
+        dayOfYear = 31;
     }
     if(calendar.getReadMonth()=="March"){
-        dayOfYear = 59;
+        dayOfYear = 60;
         if(isLeapYear()){
             dayOfYear++;
         }
     }
     if(calendar.getReadMonth()=="April"){
-        dayOfYear = 90;
+        dayOfYear = 91;
         if(isLeapYear()){
             dayOfYear++;
         }
     }
     if(calendar.getReadMonth()=="May"){
-        dayOfYear = 120;
+        dayOfYear = 121;
         if(isLeapYear()){
             dayOfYear++;
         }
     }
     if(calendar.getReadMonth()=="June"){
-        dayOfYear = 151;
+        dayOfYear = 152;
         if(isLeapYear()){
             dayOfYear++;
         }
     }
     if(calendar.getReadMonth()=="July"){
-        dayOfYear = 181;
+        dayOfYear = 182;
         if(isLeapYear()){
             dayOfYear++;
         }
     }
     if(calendar.getReadMonth()=="August"){
-        dayOfYear = 212;
+        dayOfYear = 213;
         if(isLeapYear()){
             dayOfYear++;
         }
@@ -155,6 +155,7 @@ void dayOfYearNow(){
             dayOfYear++;
         }
     }
+    calendar.setBrainRead(dayOfYear+calendar.getReadDay());
 }
 void Qustion2(){
     cout<<"From what month of the year do you want to start de calculation\n";
@@ -255,7 +256,7 @@ void option1(){
 
 void calculate(){
     if(isLeapYear()){
-        calendar.setBrainRead(calendar.getBrainRead()+dayOfYear);
+        calendar.setBrainRead(calendar.getBrainRead());
         calendar.setResultYear(calendar.getReadYear() + calendar.getBrainRead()/366);
         calendar.setResultDay((calendar.getBrainRead()+dayOfYear+calendar.getReadDay())%366);
         if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
@@ -308,7 +309,7 @@ void calculate(){
         }
     }
     else{
-        calendar.setResultDay(calendar.getBrainRead()%365);
+        calendar.setResultYear(calendar.getReadYear() + (calendar.getBrainRead()/365));
         calendar.setResultDay(calendar.getBrainRead()%365);
         if(calendar.getResultDay()>=1 && calendar.getResultDay()<31){
             calendar.setResultMonth("January");
@@ -388,16 +389,32 @@ void decision(){
 int main(){
     
     while (running)
-    {
-        Qustion1();
-        validation1();
-        Qustion2();
-        validation2();
-        Qustion3();
-        validation3();
-        option1();
-        Show();
-        decision();
+    {cout<<endl;
+        cout<<"Menu"<<endl;
+        cout<<"1.Calculate from a date"<<endl;
+        cout<<"2.Calculate the diffrance between two dates"<<endl;
+        cout<<"3.Exit"<<endl;
+        cout<<endl;
+        int decision;
+        cin>>decision;
+        if(decision == 1){
+            Qustion1();
+            validation1();
+            Qustion2();
+            validation2();
+            Qustion3();
+            validation3();
+            option1();
+            Show();
+        }
+        else if(decision == 2){
+
+        }
+        else if(decision == 3){
+            running = false;
+        }else{
+            cout<<" Invalid input";
+        }
     }
     
     
